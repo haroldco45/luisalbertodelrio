@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luis Alberto Del Río — Consultor</title>
+  <meta name="description" content="Tarjeta digital profesional de Luis Alberto Del Río, Consultor." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- PWA Manifest inline -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Luis Alberto Del Río — Consultor" />
+  <meta property="og:description" content="Tarjeta digital profesional. WhatsApp: 3145959767" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luisdelrio.vibraspositivashm.com" />
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface2: #181818;
+      --red: #c0392b;
+      --red-light: #e74c3c;
+      --red-glow: rgba(192, 57, 43, 0.35);
+      --red-subtle: rgba(192, 57, 43, 0.08);
+      --text: #f0ece4;
+      --text-dim: #9a9590;
+      --text-faint: #4a4540;
+      --gold: #b8963e;
+      --gold-light: #d4a94e;
+      --border: rgba(255,255,255,0.06);
+      --border-red: rgba(192,57,43,0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── Background texture ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 10%, rgba(192,57,43,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 85% 90%, rgba(192,57,43,0.08) 0%, transparent 55%),
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px),
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.008) 80px, rgba(255,255,255,0.008) 81px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative; z-index: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 0 80px;
+    }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      position: relative;
+      padding: 60px 32px 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40px; left: 50%;
+      transform: translateX(-50%);
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, var(--red-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Decorative diagonal lines */
+    .hero-lines {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-lines::before, .hero-lines::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-red), transparent);
+    }
+    .hero-lines::before { top: 30%; transform: rotate(-6deg) translateX(-25%); }
+    .hero-lines::after { top: 70%; transform: rotate(6deg) translateX(-25%); opacity: 0.5; }
+
+    .avatar-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red) 0%, #7b1d14 100%);
+      margin-bottom: 28px;
+      position: relative;
+      animation: pulse-ring 3s ease-in-out infinite;
+      box-shadow: 0 0 0 0 var(--red-glow), 0 8px 32px rgba(0,0,0,0.6);
+    }
+    .avatar-ring::before {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      border: 1px solid var(--border-red);
+      animation: spin-slow 8s linear infinite;
+      background: conic-gradient(from 0deg, transparent 70%, var(--red) 100%);
+    }
+    .avatar-initials {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      position: relative;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 0 0 0 var(--red-glow), 0 8px 32px rgba(0,0,0,0.6); }
+      50% { box-shadow: 0 0 0 12px rgba(192,57,43,0.0), 0 8px 32px rgba(0,0,0,0.6); }
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+
+    .hero-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 12px;
+      font-weight: 500;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      animation: fadeUp 0.9s ease both 0.1s;
+    }
+    .hero-name span {
+      display: block;
+      color: var(--text-dim);
+      font-style: italic;
+      font-weight: 400;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1em;
+    }
+
+    .hero-role {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeUp 1s ease both 0.2s;
+    }
+    .hero-role-line {
+      width: 30px; height: 1px;
+      background: var(--red);
+    }
+    .hero-role-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 32px;
+      margin-bottom: 8px;
+    }
+    .divider-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-red), transparent);
+    }
+    .divider-diamond {
+      width: 6px; height: 6px;
+      background: var(--red);
+      transform: rotate(45deg);
+    }
+
+    /* ── CONTACT CARDS ── */
+    .section {
+      padding: 24px 24px 0;
+      animation: fadeUp 1s ease both 0.3s;
+    }
+
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      font-weight: 600;
+      margin-bottom: 14px;
+      padding-left: 4px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--red);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+      transform-origin: bottom;
+    }
+    .contact-card:active::before,
+    .contact-card:hover::before { transform: scaleY(1); }
+    .contact-card:active, .contact-card:hover {
+      border-color: var(--border-red);
+      background: var(--surface2);
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .icon-wa { background: rgba(37, 211, 102, 0.12); }
+    .icon-email { background: var(--red-subtle); }
+    .icon-share { background: rgba(184, 150, 62, 0.1); }
+
+    .contact-info { flex: 1; }
+    .contact-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 3px;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .contact-arrow {
+      color: var(--text-faint);
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+    .contact-card:hover .contact-arrow { transform: translateX(4px); color: var(--red-light); }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .service-pill {
+      padding: 14px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .service-pill:hover, .service-pill:active {
+      border-color: var(--border-red);
+      background: var(--red-subtle);
+    }
+    .service-icon { font-size: 1.4rem; display: block; margin-bottom: 6px; }
+    .service-text {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--text-dim);
+    }
+
+    /* ── SHARE BUTTON ── */
+    .share-section {
+      padding: 24px 24px 0;
+      animation: fadeUp 1s ease both 0.5s;
+    }
+
+    .btn-share {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, var(--red) 0%, #8b1f16 100%);
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      box-shadow: 0 8px 24px rgba(192,57,43,0.3);
+    }
+    .btn-share:hover, .btn-share:active {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(192,57,43,0.45);
+    }
+
+    /* ── QR / SAVE ── */
+    .meta-section {
+      padding: 20px 24px 0;
+      display: flex;
+      gap: 10px;
+      animation: fadeUp 1s ease both 0.6s;
+    }
+
+    .btn-meta {
+      flex: 1;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-dim);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-meta:hover, .btn-meta:active {
+      border-color: var(--border-red);
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    /* ── QR Modal ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border-red);
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.open .modal-box { transform: scale(1); }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .modal-sub {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+
+    #qrCanvas {
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .modal-url {
+      font-size: 0.68rem;
+      color: var(--text-faint);
+      word-break: break-all;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+
+    .btn-modal-close {
+      width: 100%;
+      padding: 13px;
+      background: var(--red);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 40px 32px 20px;
+      text-align: center;
+      animation: fadeUp 1s ease both 0.7s;
+    }
+    .footer-brand {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      text-transform: uppercase;
+    }
+    .footer-brand a {
+      color: var(--red);
+      text-decoration: none;
+      opacity: 0.7;
+    }
+    .footer-brand a:hover { opacity: 1; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 30px; left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--surface);
+      border: 1px solid var(--border-red);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      z-index: 200;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      white-space: nowrap;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── Install Banner ── */
+    #install-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border-red);
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 12px;
+      z-index: 50;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    #install-banner.show { transform: translateY(0); }
+    #install-banner p { flex: 1; font-size: 0.72rem; color: var(--text-dim); line-height: 1.4; }
+    #install-banner strong { color: var(--text); display: block; font-size: 0.78rem; }
+    .btn-install {
+      padding: 10px 18px;
+      background: var(--red);
+      border: none; border-radius: 8px;
+      color: #fff; font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem; font-weight: 600; cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-dismiss {
+      background: none; border: none; color: var(--text-faint);
+      font-size: 1.2rem; cursor: pointer; padding: 4px;
+    }
+
+    /* Scroll-reveal helper */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lines"></div>
+    <div class="avatar-ring">
+      <span class="avatar-initials">LD</span>
+    </div>
+    <p class="hero-tag">Tarjeta Digital Profesional</p>
+    <h1 class="hero-name">
+      Luis Alberto
+      <span>Del Río</span>
+    </h1>
+    <div class="hero-role">
+      <div class="hero-role-line"></div>
+      <span class="hero-role-text">Consultor</span>
+      <div class="hero-role-line"></div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- CONTACTO -->
+  <section class="section reveal">
+    <p class="section-label">Contacto directo</p>
+    <div class="contact-grid">
+
+      <a class="contact-card" href="https://wa.me/573145959767?text=Hola%20Luis%20Alberto%2C%20vi%20tu%20tarjeta%20digital%20y%20quiero%20contactarte." target="_blank" rel="noopener">
+        <div class="contact-icon icon-wa">📱</div>
+        <div class="contact-info">
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">314 595 9767</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <a class="contact-card" href="mailto:luisdelrio3@gmail.com" target="_blank" rel="noopener">
+        <div class="contact-icon icon-email">✉️</div>
+        <div class="contact-info">
+          <div class="contact-label">Correo electrónico</div>
+          <div class="contact-value">luisdelrio3@gmail.com</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section reveal" style="animation-delay:0.1s">
+    <p class="section-label" style="margin-top:24px">Áreas de consultoría</p>
+    <div class="services-grid">
+      <div class="service-pill">
+        <span class="service-icon">📊</span>
+        <span class="service-text">Estrategia<br>Empresarial</span>
+      </div>
+      <div class="service-pill">
+        <span class="service-icon">🤝</span>
+        <span class="service-text">Asesoría<br>Comercial</span>
+      </div>
+      <div class="service-pill">
+        <span class="service-icon">📈</span>
+        <span class="service-text">Gestión<br>Financiera</span>
+      </div>
+      <div class="service-pill">
+        <span class="service-icon">🎯</span>
+        <span class="service-text">Planeación<br>Estratégica</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHARE -->
+  <div class="share-section reveal" style="animation-delay:0.2s">
+    <button class="btn-share" onclick="shareCard()">
+      <span>🔗</span>
+      Compartir mi tarjeta digital
+    </button>
+  </div>
+
+  <!-- META BUTTONS -->
+  <div class="meta-section reveal" style="animation-delay:0.3s">
+    <button class="btn-meta" onclick="showQR()">
+      <span>⬛</span> Ver QR
+    </button>
+    <button class="btn-meta" onclick="saveContact()">
+      <span>👤</span> Guardar contacto
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-brand">
+      Desarrollada por <a href="https://wa.me/573117700431" target="_blank">Vibras Positivas HM</a><br>
+      Derechos de Autor Reservados
+    </p>
+  </div>
+
+</div><!-- /wrapper -->
+
+<!-- QR MODAL -->
+<div class="modal-overlay" id="qrModal" onclick="closeQR(event)">
+  <div class="modal-box">
+    <p class="modal-title">Código QR</p>
+    <p class="modal-sub">Escanea para abrir esta tarjeta</p>
+    <canvas id="qrCanvas" width="200" height="200"></canvas>
+    <p class="modal-url" id="qrUrl">luisdelrio.vibraspositivashm.com</p>
+    <button class="btn-modal-close" onclick="document.getElementById('qrModal').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- INSTALL BANNER -->
+<div id="install-banner">
+  <p><strong>Instalar tarjeta digital</strong>Agrega al inicio de tu pantalla para acceso rápido</p>
+  <button class="btn-install" id="btn-install">Instalar</button>
+  <button class="btn-dismiss" onclick="document.getElementById('install-banner').classList.remove('show')">✕</button>
+</div>
+
+<!-- QR Generator (qrcode.js via CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+// ── PWA Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+
+// ── Install Prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => {
+    document.getElementById('install-banner').classList.add('show');
+  }, 3000);
+});
+document.getElementById('btn-install').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    document.getElementById('install-banner').classList.remove('show');
+    if (outcome === 'accepted') showToast('✅ ¡Tarjeta instalada!');
+  }
+});
+
+// ── Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+reveals.forEach(r => io.observe(r));
+
+// ── Toast
+function showToast(msg, dur = 2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
+}
+
+// ── Share
+function shareCard() {
+  const data = {
+    title: 'Luis Alberto Del Río — Consultor',
+    text: 'Te comparto mi tarjeta digital profesional 📇',
+    url: window.location.href
+  };
+  if (navigator.share) {
+    navigator.share(data).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => showToast('🔗 Enlace copiado al portapapeles'))
+      .catch(() => showToast('Copia el enlace de la barra de dirección'));
+  }
+}
+
+// ── QR
+let qrGenerated = false;
+function showQR() {
+  const modal = document.getElementById('qrModal');
+  modal.classList.add('open');
+  if (!qrGenerated) {
+    const url = window.location.href;
+    document.getElementById('qrUrl').textContent = url;
+    try {
+      new QRCode(document.getElementById('qrCanvas'), {
+        text: url,
+        width: 200, height: 200,
+        colorDark: '#0a0a0a',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } catch(e) {
+      // fallback: draw simple text
+      const ctx = document.getElementById('qrCanvas').getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, 200, 200);
+      ctx.fillStyle = '#333';
+      ctx.font = '12px monospace';
+      ctx.fillText('Escanea con tu cámara', 10, 100);
+    }
+    qrGenerated = true;
+  }
+}
+function closeQR(e) {
+  if (e.target.id === 'qrModal') document.getElementById('qrModal').classList.remove('open');
+}
+
+// ── Save Contact (vCard)
+function saveContact() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Luis Alberto Del Río
+N:Del Río;Luis Alberto;;;
+TEL;TYPE=CELL,PREF:+573145959767
+EMAIL:luisdelrio3@gmail.com
+TITLE:Consultor
+NOTE:Tarjeta digital — Vibras Positivas HM
+END:VCARD`;
+  const blob = new Blob([vcard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'LuisAlbertoDelRio.vcf';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast('👤 Contacto guardado (.vcf)');
+}
+</script>
+
+</body>
+</html>
